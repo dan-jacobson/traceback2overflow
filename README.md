@@ -1,8 +1,8 @@
 traceback2overflow
 ==============
 
-This nbextension builds on skip-tracebacks error tracebacks, displaying instead a summary of the
-error name and type. It adds a button to search StackOverflow for an error.
+This nbextension builds on the skip-tracebacks Jupyter extension, displaying a summary of a traceback error name and type. It adds a button to search StackOverflow for an error.
+
 Clicking the summary displays the whole traceback.
 
 

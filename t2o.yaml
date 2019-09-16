@@ -2,7 +2,7 @@
 Name: Traceback 2 Overflow
 Description: |
   Upon a traceback error, allows for a single-button search of said error
-  on stack overflow or google. Useful for syntax and debugging.
+  on stack overflow.
 Link: readme.md
 Main: main.js
 Compatibility: 5.x, 6.x
