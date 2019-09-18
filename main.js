@@ -53,8 +53,8 @@ define([
                 if (!inserted_text) {
                     return;
                 }
-                // title="Copy full traceback to clipboard"
-                var copy_btn = $('<i class="fa fa-fw fa-copy" title="Copy traceback to clipboard"/>')
+
+                var copy_btn = $('<i class="fa fa-fw fa-copy" title="Copy full traceback to clipboard"/>')
                     .on('click', function (evt) {
                         // prevent event bubbling up to collapse/uncollapse traceback
                         evt.stopPropagation();
@@ -100,7 +100,8 @@ define([
                             }
                         }
                     });
-                var search_btn = $('<i class="fa fa-fw fa-search" title="Search traceback on StackOverflow"/>')
+                var search_btn = $('<button class="btn"><i class="fa fa-fw fa-search" title="Search traceback on StackOverflow"></i> Search StackOverflow</button>')
+                    .css('cursor', 'pointer')
                     .on('click', function (evt) {
                       //prevent event bubbling up to collapse/uncollapse traceback
                         evt.stopPropagation();
@@ -109,7 +110,7 @@ define([
 
                         var msg = 'Search failed';
                         try {
-                            var error_text_to_search = sum.text()
+                            var error_text_to_search = json.ename + ': ' + json.evalue
                                 .replace(/\s\(<ipython.*$/gm,'').replace(/^\s/gm,'');
                             var successful = window
                                 .open('https://stackoverflow.com/search?q='+error_text_to_search);
@@ -148,14 +149,9 @@ define([
                     .text(': ' + json.evalue + ' ')
                     .prepend($('<span class=ansired/>').text(json.ename));
 
-                if (cfg.show_search_buttons) {
-                    sum.append('\n').append(search_btn);
-                }
-
                 if (cfg.show_copy_buttons) {
                     sum.prepend(' ').prepend(copy_btn);
                 }
-
 
                 sum
                     .append('<i class="fa fa-caret-right" title="Expand traceback"/>')
@@ -168,14 +164,17 @@ define([
                             .toggleClass('fa-caret-down', show)
                             .toggleClass('fa-caret-right', !show)
                             .attr('title', show ? 'Collapse traceback' : 'Expand traceback');
-                        summary.siblings()[show ? 'slideDown' : 'slideUp'](cfg.animation_duration || 100);
+                        summary.siblings().not(".btn")[show ? 'slideDown' : 'slideUp'](cfg.animation_duration || 100);
                     })
-                    .prependTo(inserted_text);
+                    .prependTo(inserted_text)
                 if (cfg.enable) {
                     sum.siblings().css('display', 'none');
                 }
                 else {
                     sum.css('display', 'none');
+                }
+                if (cfg.show_search_buttons) {
+                    $(search_btn).appendTo(inserted_text);
                 }
             }
         };

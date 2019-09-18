@@ -6,7 +6,7 @@ This nbextension builds on the skip-tracebacks Jupyter extension, displaying a s
 Clicking the summary displays the whole traceback.
 
 
-Example
+<!-- Example
 -------
 
 With normal traceback:
@@ -15,7 +15,7 @@ With normal traceback:
 
 With nbextension enabled:
 
-![](skip-traceback.png)
+![](skip-traceback.png) -->
 
 
 
