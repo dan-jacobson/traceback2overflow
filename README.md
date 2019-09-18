@@ -1,12 +1,12 @@
 traceback2overflow
 ==============
 
-This nbextension builds on the skip-tracebacks Jupyter extension, displaying a summary of a traceback error name and type. It adds a button to search StackOverflow for an error.
+This nbextension builds on the skip-tracebacks Jupyter extension, summerizing a traceback error and type. It also adds a button to a given traceback that searches StackOverflow for the error.
 
-Clicking the summary displays the whole traceback.
+Clicking the summary displays the full traceback.
 
 
-<!-- Example
+Example
 -------
 
 With normal traceback:
@@ -15,7 +15,7 @@ With normal traceback:
 
 With nbextension enabled:
 
-![](skip-traceback.png) -->
+![](traceback2overflow.png)
 
 
 
@@ -35,23 +35,26 @@ python.
 
 The available options are:
 
-* `skip-traceback.animation_duration` - duration (in milliseconds) of the
+* `t2o.animation_duration` - duration (in milliseconds) of the
   show/hide traceback animations. Defaults to `100`.
 
-* `skip-traceback.button_icon` - a
+* `t2o.button_icon` - a
   [fontawesome](https://fontawesome.com/icons)
   class name, used for the action and toolbar button.
   Defaults to `fa-warning`.
 
-* `skip-traceback.show_copy_buttons` - add buttons to headings to copy the
-  full traceback to the clipboard. Defaults to `true`.
+* `t2o.show_copy_buttons` - add buttons to headings to copy the
+  full traceback to the clipboard. Defaults to `false`.
 
-* `skip-traceback.use_toolbar_button` - add a button to the toolbar which can
+* `t2o.use_toolbar_button` - add a button to the toolbar which can
   be used to toggle on or off the contracted display of all cells' tracebacks.
   Defaults to `false`.
 
-* `skip-traceback.enable` - enable collapsing the tracebacks on loading the
+* `t2o.enable` - enable collapsing the tracebacks on loading the
   nbextension. Defaults to `true`
+
+* `t2o.show_search_buttons` - add button to traceback summery to search the
+  traceback on StackOverflow. Defaults to `true`
 
 
 For example, to set the animation time to half a second, and enable adding the
