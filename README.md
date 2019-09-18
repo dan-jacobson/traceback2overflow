@@ -63,7 +63,7 @@ toolbar button, we can use the following python snippet:
 ```python
 from notebook.services.config import ConfigManager
 cm = ConfigManager()
-cm.update("notebook", {"skip-traceback": {
+cm.update("notebook", {"t2o": {
     "animation_duration": 500,
     "use_toolbar_button": True,
 }})
