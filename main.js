@@ -101,7 +101,12 @@ define([
                         }
                     });
                 var search_btn = $('<button class="btn"><i class="fa fa-fw fa-search" title="Search traceback on StackOverflow"></i> Search StackOverflow</button>')
-                    .css('cursor', 'pointer')
+                    .css({"cursor": "pointer"})
+                    .hover(function () {
+                        $(this).css("background-color", "lightgray")
+                    }, function () {
+                        $(this).css("background-color", "")
+                    })
                     .on('click', function (evt) {
                       //prevent event bubbling up to collapse/uncollapse traceback
                         evt.stopPropagation();
